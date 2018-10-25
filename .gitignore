@@ -1,0 +1,5 @@
+kaoraweb/myvenv/
+*/__pycache__/*
+.vscode/
+*/*/__pycache__/*
+.idea/
