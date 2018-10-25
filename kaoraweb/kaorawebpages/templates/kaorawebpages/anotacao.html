@@ -1,0 +1,31 @@
+{% include 'headerMain.html' %}
+<div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col s12">
+                <label class="lblCadastro" for="{{ formAnotacao.data.id_for_label }}">Data da Anotação:</label>
+                {{ formAnotacao.data }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <label class="lblCadastro" for="{{ formAnotacao.parteCorpo.id_for_label }}">Parte Analisada:</label>
+                {{ formAnotacao.parteCorpo }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <label class="lblCadastro" for="{{ formAnotacao.anotacao.id_for_label }}">Anotação sobre o paciente:</label>
+                {{ formAnotacao.anotacao }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center btnEntrar">
+                <button class="waves-effect waves-light btn-large" type="submit">ENVIAR</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% include 'footer.html' %}

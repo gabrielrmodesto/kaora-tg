@@ -1,0 +1,125 @@
+main{
+    margin-top: 5%;
+}
+main h5{
+    margin-bottom: 3%;
+}
+.box{
+    border: none;
+    margin-top: 2%;
+    height: 300px;
+}
+.menu-top{
+    background-color: #091540;
+}
+#mobile-demo li a{
+    color: #fffff0;
+}
+ul li a:hover{
+    background-color: #336699;
+}
+ul li a{
+    font-size: 1.14em;
+}
+.btnEntrar{
+    margin-top: 5%;
+}
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default),
+input[type="email"]:not(.browser-default),
+input[type="date"]:not(.browser-default),
+input[type="tel"]:not(.browser-default),
+textarea:not(.browser-default){
+    padding: 1% 2%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid rgb(112, 112, 112);
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+textarea:not(.browser-default):focus:not([readonly]){
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+input::placeholder, textarea::placeholder{
+    color: #2c2c2c;
+}
+.lblLogin, .lblCadastro{
+    color: black;
+    font-size: 1.42em;
+}
+.loginBox{
+    margin-bottom: 2%;
+}
+.btnEntrar button{
+    background-color: #336699;
+    width: 150px;
+}
+.btnEntrar button:hover{
+    background-color: #336699;
+}
+.dropdown-content li a{
+    color: #fffff0;
+    background-color: #091540;
+}
+.card .card-title{
+    font-size: 2.1rem;
+}
+.card p{
+    font-size: 1.33rem;
+    padding: 2% 0;
+}
+.card div a{
+    margin-bottom: -35px;
+}
+textarea{
+    height: 200px;
+}
+.boxDetails{
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.boxDetails h4, .boxDetails p, .boxDetails details{
+    margin-left: 5%;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+    margin-bottom: 3%;
+}
+.page-footer{
+    background-color: #090909;
+}
+.page-footer p{
+    font-size: 1.33em;
+    margin-top: -15px;
+}
+@media screen and (min-width: 700px){
+    .conteudo-menu{
+        margin: 0 5%;
+    }
+    .cardConsulta{
+        padding-top: 20px;
+    }
+    .cardConsulta .card-title{
+        margin-top: -15px;
+    }
+    .cardConsulta .row{
+        margin-top: 20px;
+    }
+}

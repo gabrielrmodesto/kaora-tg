@@ -1,0 +1,110 @@
+{% include 'headerMain.html' %}
+<h4 class="center">Cadastre seu Paciente</h4>
+<form action="" method="POST" class="container">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col s12 l8">
+            <label class="lblCadastro" for="{{ formPaciente.nome.id_for_label }}">Nome</label>
+            {{ formPaciente.nome }}
+        </div>
+        <div class="col s12 l4">
+            <label class="lblCadastro" for="{{ formPaciente.cpfPaciente.id_for_label }}">CPF</label>
+            {{ formPaciente.cpfPaciente }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l8">
+            <label class="lblCadastro" for="{{ formPaciente.endereco.id_for_label }}">Endereço</label>
+            {{ formPaciente.endereco }}
+        </div>
+        <div class="col s12 l4">
+            <label class="lblCadastro" for="{{ formPaciente.bairro.id_for_label }}">Bairro</label>
+            {{ formPaciente.bairro }}
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col s12 l4">
+            <label class="lblCadastro" for="{{ formPaciente.cep.id_for_label }}">CEP</label>
+            {{ formPaciente.cep }}
+        </div>
+        <div class="col s12 l4">
+            <label class="lblCadastro" for="{{ formPaciente.cidade.id_for_label }}">Cidade</label>
+            {{ formPaciente.cidade }}
+        </div>
+        <!--<div class="col s12 l4">
+            <label class="lblCadastro" for="uf">UF</label>
+            <select name="uf" id="uf">
+                <option value="{{ uf }}"></option>
+            </select>
+        </div>-->
+    </div>
+    <div class="row">
+        <div class="col s12 l4">
+            <label class="lblCadastro" for="{{ formPaciente.telefone.id_for_label }}">Telefone</label>
+            {{ formPaciente.telefone }}
+        </div>
+        <div class="col s12 l4">
+            <label class="lblCadastro" for="{{ formPaciente.celular.id_for_label }}">Celular</label>
+            {{ formPaciente.celular }}    
+        </div>
+        <div class="col s12 l4">
+            <label class="lblCadastro" for="{{ formPaciente.email.id_for_label }}">email</label>
+            {{ formPaciente.email }}    
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l6">
+            <label class="lblCadastro" for="{{ formPaciente.dataNascimento.id_for_label }}">Data de Nascimento</label>
+            {{ formPaciente.dataNascimento }}
+        </div>
+        <div class="col s12 l6">
+            <label class="lblCadastro" for="menor">É menor de idade?</label>
+            <p>
+                <label>
+                    <input type="radio" name="menor" id="menor" value="sim">
+                    <span>Sim</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="radio" name="menor" id="menor" value="nao">
+                    <span>Não</span>
+                </label>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l6">
+            <label class="lblCadastro" for="{{ formPaciente.responsavel.id_for_label }}">Nome Responsável</label>
+            {{ formPaciente.responsavel }}
+        </div>
+        <div class="col s12 l6">
+            <label class="lblCadastro" for="{{ formPaciente.cpfResponsavel.id_for_label }}">CPF</label>
+            {{ formPaciente.cpfResponsavel }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <label class="lblCadastro" for="{{ formPaciente.diagnostico.id_for_label }} ">Diagnóstico</label>
+            {{ formPaciente.diagnostico }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <label class="lblCadastro">Descrição do Diagnóstico</label>
+            {{ formPaciente.descricaoDiagnostico }}
+        </div>
+    </div>
+    <div class="row center">
+        <div class="col s12">
+            <label class="lblCadastro" for="{{ formPaciente.fotos.id_for_label }}">Fotos</label>
+            {{ formPaciente.fotos }}
+        </div>
+    </div>
+    <div class="row center">
+        <div class="col s12 btnEntrar">
+            <button class="waves-effect waves-light btn-large" type="submit">Cadastrar</button>
+        </div>
+    </div>
+</form>
+{% include 'footer.html' %}

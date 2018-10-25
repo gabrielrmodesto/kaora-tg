@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KAORA</title>
+    {% load static %}
+    <link rel="short icon" href="{% static 'img/favkoru.ico' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="menu-top">
+                <div class="nav-wrapper conteudo-menu">
+                    <a href="{% url 'login' %}" class="brand-logo">Kaora</a>
+                    <a href="#mobile-demo" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="{% url 'cadastro_fisioterapeuta' %}">Cadastre-se</a></li>
+                        <li><a href="funciona.html">Como Funciona</a></li>
+                        <li><a href="termos.html">Termos de uso</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <ul class="sidenav menu-top" id="mobile-demo">
+            <li><a href="{% url 'cadastro_fisioterapeuta' %}">Cadastre-se</a></li>
+            <li><a href="funciona.html">Como Funciona</a></li>
+            <li><a href="termos.html">Termos de uso</a></li>
+        </ul>
+    </header>
+    <main>

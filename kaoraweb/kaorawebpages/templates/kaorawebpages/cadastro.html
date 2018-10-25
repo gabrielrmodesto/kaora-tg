@@ -1,0 +1,65 @@
+{% include 'headerInitial.html' %}
+<h3 class="center">Cadastre-se no Kaora</h3>
+
+<div class="row">
+    <div class="col offset-l2 l8">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col l8 s12">
+                    <label class="lblCadastro" for="{{ formFisioterapeuta.nome.id_for_label}}">Nome </label>
+                    {{ formFisioterapeuta.nome }}
+                </div>
+                <div class="col l4 s12">
+                    <label class="lblCadastro" for="{{ formFisioterapeuta.cpfFisioterapeuta.id_for_label}}">CPF</label>
+                    {{ formFisioterapeuta.cpfFisioterapeuta }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l4 s12">
+                    <label class="lblCadastro" for="{{ formFisioterapeuta.crefito.id_for_label}}">CREFITO</label>
+                    {{ formFisioterapeuta.crefito }}
+                </div>
+                <div class="col l4 s12">
+                    <label class="lblCadastro" for="especialidade">Especialidade?</label>
+                    <div class="row">
+                        <div class="col offset-s4 offset-l2 l4">
+                            <p>
+                                <label>    
+                                    <input type="radio" name="especialidade" value="sim" />
+                                    <span>Sim</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s2 l3">
+                            <p>
+                                <label>
+                                    <input type="radio" name="especialidade" value="nao" />
+                                    <span>Não</span>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l4 s12">
+                    <label class="lblCadastro" for="{{ formFisioterapeuta.especialidade.id_for_label}}">Qual?</label>
+                    {{ formFisioterapeuta.especialidade }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l6 s12">
+                    <label class="lblCadastro" for="{{ formFisioterapeuta.email.id_for_label}}">email</label>
+                    {{ formFisioterapeuta.email }}
+                </div>
+                <div class="col l6 s12">
+                    <label class="lblCadastro" for="{{ formFisioterapeuta.senha.id_for_label}}">senha</label>
+                    {{ formFisioterapeuta.senha }}
+                </div>
+            </div>
+            <div class="col s12 center btnEntrar">
+                <button class="waves-effect waves-light btn-large" type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% include 'footer.html' %}

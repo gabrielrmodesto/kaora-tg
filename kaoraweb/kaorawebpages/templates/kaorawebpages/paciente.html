@@ -1,0 +1,71 @@
+{% include 'headerMain.html' %}
+<div class="container">
+    <div class="row top">
+        <div class="col s12 boxDetails">
+            <h4>Ficha Médica</h4>
+            <div class="row">
+                <div class="col l6 s12">
+                    <p>Nome: {{ paciente.nome }} </p>
+                    <p>Data Nascimento: {{ paciente.dataNascimento }} </p>
+                    <p>Diagnóstico: {{ paciente.diagnostico }} </p>
+                    <details> 
+                        <summary>Descrição diagnóstico </summary> 
+                        <p>{{ paciente.descricaoDiagnostico }}</p>
+                    </details>              
+                </div>
+                <div class="col l6 s12">
+                    <i class="far fa-user-circle fa-7x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 center">
+            {% if queryMuscle %}
+                <canvas id="paciente-grafico"></canvas>
+            {% elif queryMuscle|length == 0 %}
+                <i class="fas fa-exclamation-circle fa-7x"></i>
+                <p class="flow-text">Nenhum dado cadastrado ainda</p>
+            {% endif %}           
+        </div>
+    </div>
+    <div class="row">
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <td>Avaliações</td>
+                    <td>Data</td>
+                    <td><a href="{% url 'avaliacao' %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Avaliação postural</td>
+                    <td>01/01/2018</td>
+                    <td><i class="far fa-file-pdf fa-2x"></i></td>
+                    <td><i class="fas fa-pencil-alt fa-2x"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <td>Anotações</td>
+                    <td>Data</td>
+                    <td><a href="{% url 'anotacao' %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Avaliação postural</td>
+                    <td>01/01/2018</td>
+                    <td><i class="far fa-file-pdf fa-2x"></i></td>
+                    <td><i class="fas fa-pencil-alt fa-2x"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% include 'footer.html' %}
