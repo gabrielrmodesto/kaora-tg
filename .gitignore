@@ -1,5 +1,7 @@
-kaoraweb/myvenv/
-*/__pycache__/*
+/myvenv/
+kaorawebprojeto/__pycache__/
+kaorawebpages/__pycache__/
 .vscode/
-*/*/__pycache__/*
+kaorawebpages/migrations/__pycache__/
 .idea/
+kaoraweb/myvenv/lib/python3.6/site-packages/PIL/__pycache__/
