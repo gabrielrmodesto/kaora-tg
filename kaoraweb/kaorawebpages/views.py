@@ -58,12 +58,12 @@ def logar(request):
     return render(request, 'kaorawebpages/login.html', {'formLogin': formLogin})
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'kaorawebpages/home.html')
 
 def Consulta_Paciente(request):
     data = {}
     data['pacientes'] = Paciente.objects.all()
-    return render(request, 'consultaPaciente.html', data)
+    return render(request, 'kaorawebpages/consultaPaciente.html', data)
 
 def Perfil_Paciente(request, pk):
     data = {}
