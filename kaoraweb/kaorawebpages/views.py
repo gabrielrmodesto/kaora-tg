@@ -18,7 +18,7 @@ def Cadastro_Fisioterapeuta(request):
         formFisioterapeuta.save()
         return redirect('login')
 
-    return render(request, 'cadastro.html', {'formFisioterapeuta': formFisioterapeuta})
+    return render(request, 'kaorawebpages/cadastro.html', {'formFisioterapeuta': formFisioterapeuta})
 
 def Cadastro_Paciente(request):
     formPaciente = PacienteForm(request.POST or None)
@@ -42,7 +42,7 @@ def Cadastro_Paciente(request):
         formPaciente.save()
         return redirect('pagina_inicial')
 
-    return render(request, 'cadastroPaciente.html', {'formPaciente': formPaciente})
+    return render(request, 'kaorawebpages/cadastroPaciente.html', {'formPaciente': formPaciente})
 
 def logar(request):
     formLogin = LoginForm(request.POST or None)
@@ -55,7 +55,7 @@ def logar(request):
             formLogin.save()
             return redirect('pagina_inicial')
 
-    return render(request, 'login.html', {'formLogin': formLogin})
+    return render(request, 'kaorawebpages/login.html', {'formLogin': formLogin})
 
 def home(request):
     return render(request, 'home.html')
@@ -75,7 +75,7 @@ def Perfil_Paciente(request, pk):
 
     data['formPacientes'] = formPacientes
     data['paciente'] = paciente
-    return render(request, 'paciente.html', data)
+    return render(request, 'kaorawebpages/paciente.html', data)
 
 def Anotacao(request):
     formAnotacao = AnotacaoForm(request.POST or None)
@@ -86,7 +86,7 @@ def Anotacao(request):
         formAnotacao.save()
         return redirect('perfil_paciente')
 
-    return render(request, 'anotacao.html', {'formAnotacao': formAnotacao})
+    return render(request, 'kaorawebpages/anotacao.html', {'formAnotacao': formAnotacao})
 
 def Avaliacao(request):
     queryMuscle = Dados_Musculos.objects.all()
@@ -98,7 +98,7 @@ def Avaliacao(request):
         'data': json.dumps(data),
     }
 
-    return render(request, 'avaliacao.html', context)
+    return render(request, 'kaorawebpages/avaliacao.html', context)
 
 def sair(request):
     logout(request)
