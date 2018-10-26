@@ -2,7 +2,9 @@
 
 ### Protótipo auxiliar de diagnóstico para fisioterapia
 
+> SENSOR
+ 
 ```
-Criação de um protótipo em arduino para auxiliar fisioterapeutas em seus diagnósticos
-Criação de um sistema web para visualização dos dados do paciente
+Sensor de eletromiografia utilizado para leitura do sinal analógico do muscúlo
+Gerando números que serão enviados ao banco de dados e lidos em forma de gráfico no sistema web
 ```
