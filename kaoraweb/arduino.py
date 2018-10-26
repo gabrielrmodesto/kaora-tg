@@ -25,8 +25,8 @@ if __name__ == '__main__':
     import json
 
     #se identificar configuracao DJANGO importa a classe model
-    if os.environ.setdefault('DJANGO_SETTINGS_MODULE','kaoraadmin.settings'):
-        #from kaorapages.models import Dados_Musculos
+    if os.environ.setdefault('DJANGO_SETTINGS_MODULE','kaorawebprojeto.settings'):
+        from kaorawebpages.models import Dados_Musculos
         from django.utils import timezone
 
     else:
