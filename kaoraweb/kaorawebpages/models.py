@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.conf import settings
 class Login(models.Model):
     email = models.EmailField(max_length=100)
     senha = models.CharField(max_length=100)
@@ -34,7 +34,7 @@ class Paciente(models.Model):
     cpfResponsavel = models.CharField(max_length=20, blank=True, null=True)
     diagnostico = models.CharField(max_length=200)
     descricaoDiagnostico = models.TextField()
-    fotos = models.ImageField(upload_to='static/img/', blank=True, null=True)
+    fotos = models.ImageField(upload_to='media/', blank=True, null=True)
 
     def __str__(self):
         return self.nome
@@ -49,7 +49,4 @@ class Anotacao_Paciente(models.Model):
 
 class Dados_Musculos(models.Model):
     dados_musculos = models.IntegerField()
-    data = models.DateTimeField()
-
-    def __str__(self):
-        return self.data
+    data = models.DateTimeField()   
