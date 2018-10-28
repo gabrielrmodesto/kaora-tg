@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 from django.urls import path
 from kaorawebpages.views import Cadastro_Fisioterapeuta, Cadastro_Paciente, logar, home, Consulta_Paciente, Perfil_Paciente, sair, Anotacao, Avaliacao
 
@@ -13,4 +15,4 @@ urlpatterns = [
     path('logout/', sair, name='logout'),
     path('anotacao/', Anotacao, name='anotacao'),
     path('avaliacao/', Avaliacao, name='avaliacao'),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
