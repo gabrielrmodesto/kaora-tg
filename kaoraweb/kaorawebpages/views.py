@@ -66,6 +66,7 @@ def Consulta_Paciente(request):
     return render(request, 'kaorawebpages/consultaPaciente.html', data)
 
 def Perfil_Paciente(request, pk):
+    #leitura da ficha do paciente
     data = {}
     paciente = Paciente.objects.get(pk=pk)
     formPacientes = PacienteForm(request.POST or None, instance=paciente)
@@ -75,6 +76,11 @@ def Perfil_Paciente(request, pk):
 
     data['formPacientes'] = formPacientes
     data['paciente'] = paciente
+
+    #leitura das anotacoes do paciente
+
+
+    #leitura das avaliacoes do paciente
     return render(request, 'kaorawebpages/paciente.html', data)
 
 def Anotacao(request):
