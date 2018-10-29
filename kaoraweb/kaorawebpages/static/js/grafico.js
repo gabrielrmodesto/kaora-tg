@@ -1,5 +1,5 @@
 var ctx = document.getElementById("paciente-grafico");
-var dados_musculos = JSON.parse('{{ dados_musculos|safe }}');
+var dados_musculos = JSON.parse('{{ dados_musculos| safe }}');
 var data = JSON.parse('{{ data|safe }}');
 
 var graficoPaciente = new Chart(ctx, {

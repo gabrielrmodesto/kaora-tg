@@ -34,7 +34,7 @@ class Paciente(models.Model):
     cpfResponsavel = models.CharField(max_length=20, blank=True, null=True)
     diagnostico = models.CharField(max_length=200)
     descricaoDiagnostico = models.TextField()
-    fotos = models.ImageField(upload_to='media/', blank=True, null=True)
+    fotos = models.ImageField(upload_to='paciente_fotos', blank=True, null=True)
 
     def __str__(self):
         return self.nome
