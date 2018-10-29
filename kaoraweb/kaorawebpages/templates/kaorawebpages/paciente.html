@@ -13,11 +13,8 @@
                         <p>{{ paciente.descricaoDiagnostico }}</p>
                     </details>              
                 </div>
-                <div class="col l6 s12">
-                    
-                        <img src="{{ images.image.fotos }}" alt="Fotos relacionadas ao paciente">  
-                   
-                    
+                <div class="col l6 s12">                    
+                    <img src="{{ paciente.fotos.url }}" alt="Fotos relacionadas ao paciente" class="responsive-img" width="100">                      
                 </div>
             </div>
         </div>
