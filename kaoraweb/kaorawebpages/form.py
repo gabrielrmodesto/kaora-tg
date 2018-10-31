@@ -23,10 +23,11 @@ class FisioterapeutaForm(ModelForm):
         widgets = {
             'nome': TextInput(attrs={'placeholder': 'Escreva seu nome'}),
             'cpfFisioterapeuta': TextInput(attrs={'class':'cpf','placeholder': 'XXX.XXX.XXX-XX'}),
+            'crefito': TextInput(attrs={'class':'crefito','placeholder':'XXXXX-F'}),
+            'especialidade': TextInput(attrs={'placeholder':'Sua especialidade'}),
             'email': TextInput(attrs={'placeholder':'fisioterapeuta@email.com'}),
-            'senha': PasswordInput(attrs={'placeholder': 'Escolha uma senha'}),
+            'senha': PasswordInput(attrs={'placeholder': 'Escolha uma senha'})
         }
-
 
 class PacienteForm(ModelForm):
 
