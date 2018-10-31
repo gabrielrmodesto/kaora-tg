@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+
 class Login(models.Model):
     email = models.EmailField(max_length=100)
     senha = models.CharField(max_length=100)
