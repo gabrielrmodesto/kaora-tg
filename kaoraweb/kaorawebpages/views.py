@@ -83,7 +83,7 @@ def Perfil_Paciente(request, pk):
     #leitura das avaliacoes do paciente
     return render(request, 'kaorawebpages/paciente.html', data)
 
-def Anotacao(request):
+def Anotacao(request, pk):
     formAnotacao = AnotacaoForm(request.POST or None)
     if formAnotacao.is_valid():
         data = formAnotacao.cleaned_data['data']
@@ -94,10 +94,10 @@ def Anotacao(request):
 
     return render(request, 'kaorawebpages/anotacao.html', {'formAnotacao': formAnotacao})
 
-def Avaliacao(request):
+def Avaliacao(request, pk):
     queryMuscle = Dados_Musculos.objects.all()
     dados_musculos = [obj.dados_musculos for obj in queryMuscle]
-    data = [obj.data for obj in queryMuscle]
+    data = [int(obj.data) for obj in queryMuscle]
 
     context = {
         'dados_musculos': json.dumps(dados_musculos),

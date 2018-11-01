@@ -22,6 +22,16 @@ var graficoPaciente = new Chart(ctx, {
         },
         labels:{
             fontStyle: 'bold',
+        },
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    displayFormats: {
+                        quarter: 'MMM YYYY'
+                    }
+                }
+            }]
         }
     }
 });
