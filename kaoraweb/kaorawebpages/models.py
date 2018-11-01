@@ -44,7 +44,6 @@ class Anotacao_Paciente(models.Model):
     data = models.DateField()
     anotacao = models.TextField()
     parteCorpo = models.CharField(max_length=40, blank=True, null=True)
-    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.anotacao
