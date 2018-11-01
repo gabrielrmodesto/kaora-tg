@@ -35,7 +35,7 @@
                 <tr>
                     <td>Avaliações</td>
                     <td>Data</td>
-                    <td><a href="{% url 'avaliacao' %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
+                    <td><a href="{% url 'avaliacao' paciente.id %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
                 </tr>
             </thead>
             <tbody>
@@ -54,15 +54,18 @@
                 <tr>
                     <td>Anotações</td>
                     <td>Data</td>
-                    <td><a href="{% url 'anotacao' %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
+                    <td><a href="{% url 'anotacao' paciente.id %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Avaliação postural</td>
-                    <td>01/01/2018</td>
-                    <td><i class="far fa-file-pdf fa-2x"></i></td>
-                    <td><i class="fas fa-pencil-alt fa-2x"></i></td>
+                    {% for anotacao in anotacoes %}
+                        <td> {{ anotacao.parteCorpo }} </td>
+                        <td> {{ anotacao.data }} </td>
+                        <td><i class="far fa-file-pdf fa-2x"></i></td>
+                        <td><i class="fas fa-pencil-alt fa-2x"></i></td>  
+                    {% endfor %}
+                    
                 </tr>
             </tbody>
         </table>
