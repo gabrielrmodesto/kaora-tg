@@ -69,22 +69,30 @@ def Perfil_Paciente(request, pk):
     #leitura da ficha do paciente
     data = {}
     paciente = Paciente.objects.get(pk=pk)
+    anotacoes = Anotacao_Paciente.objects.all()
     formPacientes = PacienteForm(request.POST or None, instance=paciente)
+    formAnotacao_Paciente = AnotacaoForm(request.POST or None)
     if formPacientes.is_valid():
         formPacientes.save()
+        return redirect('perfil_paciente')
+    
+    if formAnotacao_Paciente.is_valid():
+        formAnotacao_Paciente.save()
         return redirect('perfil_paciente')
 
     data['formPacientes'] = formPacientes
     data['paciente'] = paciente
 
     #leitura das anotacoes do paciente
-
+    data['anotacoes'] = anotacoes
 
     #leitura das avaliacoes do paciente
     return render(request, 'kaorawebpages/paciente.html', data)
 
 def Anotacao(request, pk):
     formAnotacao = AnotacaoForm(request.POST or None)
+    dados = {}
+    paciente = Paciente.objects.get(pk=pk)
     if formAnotacao.is_valid():
         data = formAnotacao.cleaned_data['data']
         parteCorpo = formAnotacao.cleaned_data['parteCorpo']
@@ -92,19 +100,24 @@ def Anotacao(request, pk):
         formAnotacao.save()
         return redirect('perfil_paciente')
 
-    return render(request, 'kaorawebpages/anotacao.html', {'formAnotacao': formAnotacao})
+    dados['formAnotacao'] = formAnotacao
+    dados['paciente'] = paciente
+    return render(request, 'kaorawebpages/anotacao.html', dados)
 
 def Avaliacao(request, pk):
     queryMuscle = Dados_Musculos.objects.all()
     dados_musculos = [obj.dados_musculos for obj in queryMuscle]
     data = [int(obj.data) for obj in queryMuscle]
-
+    dados = {}
+    paciente = Paciente.objects.get(pk=pk)
     context = {
         'dados_musculos': json.dumps(dados_musculos),
         'data': json.dumps(data),
     }
 
-    return render(request, 'kaorawebpages/avaliacao.html', context)
+    dados['context'] = context
+    dados['paciente'] = paciente
+    return render(request, 'kaorawebpages/avaliacao.html', dados)
 
 def sair(request):
     logout(request)
