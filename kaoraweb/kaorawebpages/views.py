@@ -1,7 +1,7 @@
 import json
 from django.shortcuts import render,redirect
 from .models import Login, Fisioterapeuta, Paciente, Anotacao_Paciente, Dados_Musculos
-from .form import LoginForm, FisioterapeutaForm, PacienteForm, AnotacaoForm
+from .form import LoginForm, FisioterapeutaForm, PacienteForm, AnotacaoForm, DadosMusculosForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -70,8 +70,10 @@ def Perfil_Paciente(request, pk):
     data = {}
     paciente = Paciente.objects.get(pk=pk)
     anotacoes = Anotacao_Paciente.objects.all()
+    avaliacoes = Dados_Musculos.objects.all()
     formPacientes = PacienteForm(request.POST or None, instance=paciente)
     formAnotacao_Paciente = AnotacaoForm(request.POST or None)
+    formAvaliacao = DadosMusculosForm(request.POST or None)
     if formPacientes.is_valid():
         formPacientes.save()
         return redirect('perfil_paciente')
@@ -80,6 +82,11 @@ def Perfil_Paciente(request, pk):
         formAnotacao_Paciente.save()
         return redirect('perfil_paciente')
 
+    if formAvaliacao.is_valid():
+        formAvaliacao.save()
+        return redirect('perfil_paciente')
+    
+
     data['formPacientes'] = formPacientes
     data['paciente'] = paciente
 
@@ -87,6 +94,8 @@ def Perfil_Paciente(request, pk):
     data['anotacoes'] = anotacoes
 
     #leitura das avaliacoes do paciente
+    data['avaliacoes'] = avaliacoes
+
     return render(request, 'kaorawebpages/paciente.html', data)
 
 def Anotacao(request, pk):
@@ -105,16 +114,22 @@ def Anotacao(request, pk):
     return render(request, 'kaorawebpages/anotacao.html', dados)
 
 def Avaliacao(request, pk):
+    dados = {}
+    formAvaliacaoPaciente = DadosMusculosForm(request.POST or None)
+    if formAvaliacaoPaciente.is_valid():
+        formAvaliacaoPaciente.save()
+        return redirect('perfil_paciente')
+
     queryMuscle = Dados_Musculos.objects.all()
     dados_musculos = [obj.dados_musculos for obj in queryMuscle]
     data = [int(obj.data) for obj in queryMuscle]
-    dados = {}
     paciente = Paciente.objects.get(pk=pk)
     context = {
         'dados_musculos': json.dumps(dados_musculos),
         'data': json.dumps(data),
     }
 
+    dados['formAvaliacaoPaciente'] = formAvaliacaoPaciente
     dados['context'] = context
     dados['paciente'] = paciente
     return render(request, 'kaorawebpages/avaliacao.html', dados)

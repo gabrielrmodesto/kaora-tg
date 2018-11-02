@@ -1,5 +1,5 @@
 from django.forms import ModelForm, CharField, PasswordInput, DateInput, widgets, TextInput, Textarea, ImageField   
-from .models import Login, Fisioterapeuta, Paciente, Anotacao_Paciente
+from .models import Login, Fisioterapeuta, Paciente, Anotacao_Paciente, Dados_Musculos
 
 class LoginForm(ModelForm):
     senha = CharField(widget=PasswordInput())
@@ -60,4 +60,12 @@ class AnotacaoForm(ModelForm):
             'data': DateInput(attrs={'type': 'date'}),
             'anotacao': Textarea(attrs={'placeholder': 'Escreva aqui sua anotação sobre o paciente'}),
             'parteCorpo': TextInput(attrs={'placeholder': 'Digite a parte analisada, ex: Pescoço'}),
+        }
+
+class DadosMusculosForm(ModelForm):
+    class Meta:
+        model = Dados_Musculos
+        fields = ('dados_musculos','data','parteAnalisada')
+        widgets = {
+            'data': DateInput(attrs={'type': 'date'}),
         }
