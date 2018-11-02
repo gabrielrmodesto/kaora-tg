@@ -68,4 +68,5 @@ class DadosMusculosForm(ModelForm):
         fields = ('dados_musculos','data','parteAnalisada')
         widgets = {
             'data': DateInput(attrs={'type': 'date'}),
+            'parteAnalisada' : TextInput(attrs={'placeholder': 'Escreva a parte do corpo a ser analisada'}),
         }

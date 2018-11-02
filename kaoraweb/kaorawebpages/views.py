@@ -120,18 +120,18 @@ def Avaliacao(request, pk):
         formAvaliacaoPaciente.save()
         return redirect('perfil_paciente')
 
-    queryMuscle = Dados_Musculos.objects.all()
-    dados_musculos = [obj.dados_musculos for obj in queryMuscle]
-    data = [int(obj.data) for obj in queryMuscle]
-    paciente = Paciente.objects.get(pk=pk)
-    context = {
-        'dados_musculos': json.dumps(dados_musculos),
-        'data': json.dumps(data),
-    }
+    # queryMuscle = Dados_Musculos.objects.all()
+    # dados_musculos = [obj.dados_musculos for obj in queryMuscle]
+    # data = [int(obj.data) for obj in queryMuscle]
+    # paciente = Paciente.objects.get(pk=pk)
+    # context = {
+    #     'dados_musculos': json.dumps(dados_musculos),
+    #     'data': json.dumps(data),
+    # }
 
     dados['formAvaliacaoPaciente'] = formAvaliacaoPaciente
-    dados['context'] = context
-    dados['paciente'] = paciente
+    #dados['context'] = context
+    #dados['paciente'] = paciente
     return render(request, 'kaorawebpages/avaliacao.html', dados)
 
 def sair(request):
