@@ -1,14 +1,14 @@
 var ctx = document.getElementById("myChart");
-var dadosMusculos = JSON.parse('[10,20,30]');
-var dia = JSON.parse('["2018-11-10 01:38:26+00:00", "2018-11-03 12:00:00+00:00", "2018-11-14 06:00:00+00:00"]');
+var dadosMusculos = JSON.parse('{{ dadosMusculos| safe }}');
+var dia = JSON.parse('{{ dia|safe }}');
 
 var graficoPaciente = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: dadosMusculos,
+        labels: dia,
         datasets:[{
             label: 'Dados Musculares',
-            data: dia,
+            data: dadosMusculos,
             borderWidth: 6,
 			borderColor: 'rgba(77,166,253,0.85)',
 			backgroundColor: 'transparent',
@@ -18,7 +18,7 @@ var graficoPaciente = new Chart(ctx, {
         title: {
             display: true,
             fontSize: 20,
-            text: 'Análise Muscular do Paciente',
+            text: 'Analise Muscular do Paciente',
         },
         labels:{
             fontStyle: 'bold',

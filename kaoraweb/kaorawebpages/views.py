@@ -6,10 +6,6 @@ from .form import LoginForm, FisioterapeutaForm, PacienteForm, AnotacaoForm, Dad
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-def myconverter(o):
-    if isinstance(o, datetime.datetime):
-        return o.__str__()
-
 def Cadastro_Fisioterapeuta(request):
     formFisioterapeuta = FisioterapeutaForm(request.POST or None)
 
@@ -125,20 +121,23 @@ def Anotacao(request, pk):
     dados['paciente'] = paciente
     return render(request, 'kaorawebpages/anotacao.html', dados)
 
-def Avaliacao(request, pk):
-    dados = {}
+def myconverter(o):
+    if isinstance(o, datetime.datetime):
+        return o.__str__()
+
+def Avaliacao(request):
     queryMuscle = Dados_Musculos.objects.all()
     dadosMusculos = [int(obj.dadosMusculos) for obj in queryMuscle]
     dia = [obj.dia for obj in queryMuscle]
-    paciente = Paciente.objects.get(pk=pk)
+    #paciente = Paciente.objects.get(pk=pk)
     context = {
         'dadosMusculos': json.dumps(dadosMusculos),
         'dia': json.dumps(dia, default=myconverter),
     }
 
-    dados['context'] = context
-    dados['paciente'] = paciente
-    return render(request, 'kaorawebpages/avaliacao.html', dados)
+    #dados['context'] = context
+    #dados['paciente'] = paciente
+    return render(request, 'kaorawebpages/avaliacao.html', context)
 
 def sair(request):
     logout(request)

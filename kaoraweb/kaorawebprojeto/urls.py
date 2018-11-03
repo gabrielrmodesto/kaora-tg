@@ -14,5 +14,5 @@ urlpatterns = [
     path('perfil_paciente/<int:pk>/', Perfil_Paciente, name='perfil_paciente'),
     path('logout/', sair, name='logout'),
     path('anotacao/<int:pk>/', Anotacao, name='anotacao'),
-    path('avaliacao/<int:pk>/', Avaliacao, name='avaliacao'),
+    path('avaliacao/', Avaliacao, name='avaliacao'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
