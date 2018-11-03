@@ -1,25 +1,6 @@
 {% include 'kaorawebpages/headerMain.html' %}
+
 <div class="container">
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col s12">
-                <label class="lblCadastro" for="{{ formAvaliacaoPaciente.data.id_for_label }}">Data da Avaliação:</label>
-                {{ formAvaliacaoPaciente.data }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <label class="lblCadastro" for="{{ formAvaliacaoPaciente.parteAnalisada.id_for_label }}">Parte Analisada:</label>
-                {{ formAvaliacaoPaciente.parteAnalisada }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 center btnEntrar">
-                <button class="waves-effect waves-light btn-large" type="submit">ENVIAR</button>
-            </div>
-        </div>
-    </form>
-    <canvas id="paciente-grafico"></canvas>
+    <canvas id="myChart" width="300" height="300"></canvas>
 </div>
 {% include 'kaorawebpages/footer.html' %}

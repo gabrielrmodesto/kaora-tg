@@ -49,9 +49,5 @@ class Anotacao_Paciente(models.Model):
         return self.parteCorpo
 
 class Dados_Musculos(models.Model):
-    dados_musculos = models.IntegerField()
-    data = models.DateTimeField()
-    parteAnalisada = models.CharField(max_length=40, blank=True, null=True)
-
-    def __str__(self):
-        return self.parteAnalisada
+    dadosMusculos = models.IntegerField()
+    dia = models.DateTimeField()

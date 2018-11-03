@@ -65,8 +65,7 @@ class AnotacaoForm(ModelForm):
 class DadosMusculosForm(ModelForm):
     class Meta:
         model = Dados_Musculos
-        fields = ('dados_musculos','data','parteAnalisada')
+        fields = ('dadosMusculos','dia')
         widgets = {
-            'data': DateInput(attrs={'type': 'date'}),
-            'parteAnalisada' : TextInput(attrs={'placeholder': 'Escreva a parte do corpo a ser analisada'}),
+            'dia': DateInput(attrs={'type': 'date'}),
         }
