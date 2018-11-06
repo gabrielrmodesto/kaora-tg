@@ -19,28 +19,46 @@
             </div>
         </div>
     </div>
-    <!--<div class="row">
-        <div class="col s12 center">
-            <canvas id="paciente-grafico"></canvas>               
-        </div>
-    </div>-->
     <div class="row">
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <td>Avaliações</td>
-                    <td>Data</td>
-                    <td><a href="{% url 'avaliacao' %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Avaliação postural</td>
-                    <td>01/01/2018</td>
-                    <td><i class="far fa-file-pdf fa-2x"></i></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="col s12 center">
+            <canvas id="pacienteGrafico"></canvas>  
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+            <script>
+                var ctx = document.getElementById("pacienteGrafico");
+                var dadosMusculos = JSON.parse('{{ dadosMusculos| safe }}');
+                var dia = JSON.parse('{{ dia|safe }}');
+
+                var pacienteGrafico = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dia,
+                        datasets:[{
+                            label: 'Dados Musculares',
+                            data: dadosMusculos,
+                            borderWidth: 6,
+                            borderColor: 'rgba(77,166,253,0.85)',
+                            backgroundColor: 'transparent',
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            fontSize: 20,
+                            text: 'Analise Muscular do Paciente',
+                        },
+                        labels:{
+                            fontStyle: 'bold',
+                        },
+                    }
+                });
+
+            </script>             
+        </div>
+    </div>
+    <div class="row">
+        <div class="col offset-l4 offset-s3 btnEntrar">                                     
+            <a href="{% url 'avaliacao' %}" class="waves-effect waves-light btn-large">Cadastrar Avaliação</a>
+        </div>
     </div>
     <div class="row">
         <table class="highlight">

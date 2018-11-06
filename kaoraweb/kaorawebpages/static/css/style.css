@@ -68,7 +68,10 @@ input::placeholder, textarea::placeholder{
     background-color: #336699;
     width: 150px;
 }
-.btnEntrar button:hover{
+.btnEntrar a{
+    background-color: #336699;
+}
+.btnEntrar button:hover, .btnEntrar a:hover{
     background-color: #336699;
 }
 .dropdown-content li a{
