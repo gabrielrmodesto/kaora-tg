@@ -126,7 +126,35 @@ def Avaliacao(request):
     }
 
     return render(request, 'kaorawebpages/avaliacao.html', context)
-    
+
+def Atualiza_Paciente(request, pk):
+    data = {}
+    paciente = Paciente.objects.get(pk=pk)
+    formPaciente = PacienteForm(request.POST or None, instance=paciente)
+
+    if formPaciente.is_valid():
+        nome = formPaciente.cleaned_data['nome']
+        cpfPaciente = formPaciente.cleaned_data['cpfPaciente']
+        endereco = formPaciente.cleaned_data['endereco']
+        bairro = formPaciente.cleaned_data['bairro']
+        cep = formPaciente.cleaned_data['cep']
+        cidade = formPaciente.cleaned_data['cidade']
+        telefone = formPaciente.cleaned_data['telefone']
+        celular = formPaciente.cleaned_data['celular']
+        email = formPaciente.cleaned_data['email']
+        dataNascimento = formPaciente.cleaned_data['dataNascimento']
+        responsavel = formPaciente.cleaned_data['responsavel']
+        cpfResponsavel = formPaciente.cleaned_data['cpfResponsavel']
+        diagnostico = formPaciente.cleaned_data['diagnostico']
+        descricaoDiagnostico = formPaciente.cleaned_data['descricaoDiagnostico']
+        fotos = formPaciente.cleaned_data['fotos']
+        formPaciente.save()
+        return redirect('consulta_paciente')
+
+    data['formPaciente'] = formPaciente
+    data['paciente'] = paciente
+    return render(request, 'kaorawebpages/cadastroPaciente.html', data)
+
 def Remover_Paciente(request, pk):
     paciente = Paciente.objects.get(pk=pk)
     paciente.delete()

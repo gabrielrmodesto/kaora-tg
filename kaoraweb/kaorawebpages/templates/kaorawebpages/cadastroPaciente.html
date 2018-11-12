@@ -1,6 +1,6 @@
 {% include 'kaorawebpages/headerMain.html' %}
 <h4 class="center">Cadastre seu Paciente</h4>
-<form action="" method="POST" class="container">
+<form method="POST" class="container">
     {% csrf_token %}
     <div class="row">
         <div class="col s12 l8">
@@ -129,9 +129,17 @@
         </div>
     </div>
     <div class="row center">
-        <div class="col s12 btnEntrar">
+        <div class="col s12 l4 btnEntrar">
             <button class="waves-effect waves-light btn-large" type="submit">Cadastrar</button>
         </div>
+    {% if paciente %}
+        <div class="col s12 l4 btnEntrar">
+            <button class="waves-effect waves-light btn-large" type="submit">Atualizar</button>
+        </div>
+        <div class="col s12 l4 btnEntrar">
+            <a href="{% url 'remove_paciente' paciente.id %}" class="waves-effect waves-light btn-large">Remover</a>
+        </div>
+    {% endif %}
     </div>
 </form>
 {% include 'kaorawebpages/footer.html' %}
