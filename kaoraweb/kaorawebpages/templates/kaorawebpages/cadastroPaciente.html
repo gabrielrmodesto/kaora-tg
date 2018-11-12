@@ -1,5 +1,12 @@
 {% include 'kaorawebpages/headerMain.html' %}
-<h4 class="center">Cadastre seu Paciente</h4>
+<div class="nav-wrapper container">
+    <div class="col s12">
+      <a href="{% url 'pagina_inicial' %}" class="breadcrumb">Home</a>
+      <a href="{% url 'consulta_paciente' %}" class="breadcrumb">Consulta Paciente</a>
+      <a href="{% url 'atualiza_paciente' paciente.id %}" class="breadcrumb">Cadastro do Paciente</a>
+    </div>
+</div>
+<h4 class="center">Cadastro do Paciente</h4>
 <form method="POST" class="container">
     {% csrf_token %}
     <div class="row">

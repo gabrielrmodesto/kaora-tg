@@ -1,5 +1,12 @@
 {% include 'kaorawebpages/headerMain.html' %}
 <div class="container">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="{% url 'pagina_inicial' %}" class="breadcrumb">Home</a>
+            <a href="{% url 'consulta_paciente' %}" class="breadcrumb">Consulta Paciente</a>
+            <a href="{% url 'perfil_paciente' paciente.id %}" class="breadcrumb">Perfil do Paciente</a>
+        </div>
+    </div>
     <div class="row top">
         <div class="col s12 boxDetails">
             <h4>Ficha Médica</h4>

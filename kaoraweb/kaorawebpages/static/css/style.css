@@ -114,6 +114,17 @@ main {
     font-size: 1.33em;
     margin-top: -15px;
 }
+a .breadcrumb, .breadcrumb,.breadcrumb:last-child{
+    color: inherit;
+    background-color: none;
+}
+.breadcrumb::before{
+    content: "\003e";
+    color: inherit;
+    background-color: none;
+    vertical-align: top;
+    font-size: 1.2em;
+}
 @media screen and (min-width: 700px){
     .conteudo-menu{
         margin: 0 5%;
