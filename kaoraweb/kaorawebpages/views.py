@@ -68,7 +68,6 @@ def Consulta_Paciente(request):
 
 def Perfil_Paciente(request, pk):
     #leitura da ficha do paciente
-    #data = {}
     paciente = Paciente.objects.get(pk=pk)
     anotacoes = Anotacao_Paciente.objects.all()
     formPacientes = PacienteForm(request.POST or None, instance=paciente)
@@ -81,12 +80,6 @@ def Perfil_Paciente(request, pk):
     if formAnotacao_Paciente.is_valid():
         formAnotacao_Paciente.save()
         return redirect('perfil_paciente')  
-
-    #data['formPacientes'] = formPacientes
-    #data['paciente'] = paciente
-
-    #leitura das anotacoes do paciente
-    #data['anotacoes'] = anotacoes
 
     #leitura das avaliacoes do paciente
     queryMuscle = Dados_Musculos.objects.all()
@@ -132,9 +125,12 @@ def Avaliacao(request):
         'dia': json.dumps(dia, default=myconverter),
     }
 
-    #dados['context'] = context
-    #dados['paciente'] = paciente
     return render(request, 'kaorawebpages/avaliacao.html', context)
+    
+def Remover_Paciente(request, pk):
+    paciente = Paciente.objects.get(pk=pk)
+    paciente.delete()
+    return redirect('consulta_paciente')
 
 def sair(request):
     logout(request)
