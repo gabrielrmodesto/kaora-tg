@@ -1,5 +1,12 @@
 {% include 'kaorawebpages/headerMain.html' %}
-<div class="container"> 
+<div class="container">
+    <div class="nav-wrapper container">
+        <div class="col s12">
+            <a href="{% url 'pagina_inicial' %}" class="breadcrumb">Home</a>
+            <a href="{% url 'consulta_paciente' %}" class="breadcrumb">Consulta Paciente</a>
+            <a href="#" class="breadcrumb">Avaliação</a>
+        </div>
+    </div> 
     <canvas id="myChart" width="300"></canvas>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>

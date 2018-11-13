@@ -4,7 +4,7 @@
         <div class="col s12">
             <a href="{% url 'pagina_inicial' %}" class="breadcrumb">Home</a>
             <a href="{% url 'consulta_paciente' %}" class="breadcrumb">Consulta Paciente</a>
-            <a href="{% url 'perfil_paciente' paciente.id %}" class="breadcrumb">Perfil do Paciente</a>
+            <a href="#" class="breadcrumb">Perfil do Paciente</a>
         </div>
     </div>
     <div class="row top">
@@ -80,7 +80,7 @@
                 <tr>
                     <td>Anotações</td>
                     <td>Data</td>
-                    <td><a href="{% url 'anotacao' paciente.id %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
+                    <td><a href="{% url 'anotacao' anotacao.id %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
                 </tr>
             </thead>
             <tbody>
@@ -88,8 +88,7 @@
                     <tr>
                         <td> {{ anotacao.parteCorpo }} </td>
                         <td> {{ anotacao.data }} </td>
-                        <td><a href="{% url 'visualiza_anotacao' anotacao.id %}"></a><i class="far fa-eye fa-2x"></i></td>
-                        <td><a href="{% url 'atualiza_anotacao' anotacao.id %}"></a><i class="fas fa-pencil-alt fa-2x"></i></td>
+                        <td><a href="{% url 'atualiza_anotacao' anotacao.id %}"><i class="fas fa-pencil-alt fa-2x"></i></a></td>
                         <th><a href="{% url 'remove_anotacao' anotacao.id %}"><i class="fas fa-times fa-2x"></i></a></th>
                     </tr>
                 {% endfor %}

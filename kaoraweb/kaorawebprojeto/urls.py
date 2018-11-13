@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path
-from kaorawebpages.views import Cadastro_Fisioterapeuta, Cadastro_Paciente, logar, home, Consulta_Paciente, Perfil_Paciente, sair, Anotacao, Avaliacao, Remover_Paciente, Atualiza_Paciente, Remover_Anotacao
+from kaorawebpages.views import Cadastro_Fisioterapeuta, Cadastro_Paciente, logar, home, Consulta_Paciente, Perfil_Paciente, sair, Anotacao, Avaliacao, Remover_Paciente, Atualiza_Paciente, Remover_Anotacao, Atualizar_Anotacao
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,5 +17,6 @@ urlpatterns = [
     path('avaliacao/', Avaliacao, name='avaliacao'),
     path('remover/<int:pk>/', Remover_Paciente, name='remove_paciente'),
     path('atualizar_paciente/<int:pk>', Atualiza_Paciente, name='atualiza_paciente'),
-    path('remover_anotacao/<int:id>', Remover_Anotacao, name='remove_anotacao'),
+    path('remover_anotacao/<int:pk>', Remover_Anotacao, name='remove_anotacao'),
+    path('atualizar_anotacao/<int:pk>', Atualizar_Anotacao, name='atualiza_anotacao'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
