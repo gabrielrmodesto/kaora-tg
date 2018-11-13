@@ -105,7 +105,7 @@ def Anotacao(request, pk):
         parteCorpo = formAnotacao.cleaned_data['parteCorpo']
         anotacao = formAnotacao.cleaned_data['anotacao']
         formAnotacao.save()
-        return redirect('perfil_paciente')
+        return redirect('anotacao')
 
     dados['formAnotacao'] = formAnotacao
     dados['paciente'] = paciente
@@ -158,6 +158,11 @@ def Atualiza_Paciente(request, pk):
 def Remover_Paciente(request, pk):
     paciente = Paciente.objects.get(pk=pk)
     paciente.delete()
+    return redirect('consulta_paciente')
+
+def Remover_Anotacao(request, pk):
+    anotacao = Anotacao_Paciente.objects.get(pk=pk)
+    anotacao.delete()
     return redirect('consulta_paciente')
 
 def sair(request):

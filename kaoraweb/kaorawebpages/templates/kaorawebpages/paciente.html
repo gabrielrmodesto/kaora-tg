@@ -84,15 +84,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    {% for anotacao in anotacoes %}
+                {% for anotacao in anotacoes %}
+                    <tr>
                         <td> {{ anotacao.parteCorpo }} </td>
                         <td> {{ anotacao.data }} </td>
-                        <td><i class="far fa-file-pdf fa-2x"></i></td>
-                        <td><i class="fas fa-pencil-alt fa-2x"></i></td>  
-                    {% endfor %}
-                    
-                </tr>
+                        <td><a href="{% url 'visualiza_anotacao' anotacao.id %}"></a><i class="far fa-eye fa-2x"></i></td>
+                        <td><a href="{% url 'atualiza_anotacao' anotacao.id %}"></a><i class="fas fa-pencil-alt fa-2x"></i></td>
+                        <th><a href="{% url 'remove_anotacao' anotacao.id %}"><i class="fas fa-times fa-2x"></i></a></th>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
