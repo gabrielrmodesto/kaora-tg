@@ -97,15 +97,15 @@ def Perfil_Paciente(request, pk):
     return render(request, 'kaorawebpages/paciente.html', context)
 
 def Anotacao(request, pk):
-    formAnotacao = AnotacaoForm(request.POST or None)
     dados = {}
     paciente = Paciente.objects.get(pk=pk)
+    formAnotacao = AnotacaoForm(request.POST or None)
     if formAnotacao.is_valid():
         data = formAnotacao.cleaned_data['data']
         parteCorpo = formAnotacao.cleaned_data['parteCorpo']
         anotacao = formAnotacao.cleaned_data['anotacao']
         formAnotacao.save()
-        return redirect('anotacao')
+        return redirect('perfil_paciente')
 
     dados['formAnotacao'] = formAnotacao
     dados['paciente'] = paciente
@@ -178,7 +178,7 @@ def Atualizar_Anotacao(request, pk):
 def Remover_Anotacao(request, pk):
     anotacao = Anotacao_Paciente.objects.get(pk=pk)
     anotacao.delete()
-    return render(request, 'kaorawebpages/paciente.html')
+    return redirect('consulta_paciente')
 
 def sair(request):
     logout(request)
