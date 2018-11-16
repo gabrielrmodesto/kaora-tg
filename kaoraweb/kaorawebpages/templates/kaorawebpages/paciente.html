@@ -80,7 +80,7 @@
                 <tr>
                     <td>Anotações</td>
                     <td>Data</td>
-                    <td><a href="{% url 'anotacao' paciente.id %}"><i class="fas fa-plus-circle fa-2x"></i></a></td>
+                    <td><a href="{% url 'anotacao' paciente.id %}" class="tooltipped" data-position="bottom" data-tooltip="Nova Anotação"><i class="fas fa-plus-circle fa-2x"></i></a></td>
                     <td></td>
                 </tr>
             </thead>
@@ -89,8 +89,8 @@
                     <tr>
                         <td> {{ anotacao.parteCorpo }} </td>
                         <td> {{ anotacao.data }} </td>
-                        <td><a href="{% url 'atualiza_anotacao' anotacao.id %}"><i class="fas fa-pencil-alt fa-2x"></i></a></td>
-                        <th><a href="{% url 'remove_anotacao' anotacao.id %}"><i class="fas fa-times fa-2x"></i></a></th>
+                        <td><a href="{% url 'atualiza_anotacao' anotacao.id %}" class="tooltipped" data-position="bottom" data-tooltip="Editar Anotação"><i class="fas fa-pencil-alt fa-2x"></i></a></td>
+                        <th><a href="{% url 'remove_anotacao' anotacao.id %}" class="tooltipped" data-position="bottom" data-tooltip="Remover Anotação"><i class="fas fa-times fa-2x"></i></a></th>
                     </tr>
                 {% endfor %}
             </tbody>
