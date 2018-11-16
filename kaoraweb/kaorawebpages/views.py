@@ -69,27 +69,17 @@ def Consulta_Paciente(request):
 def Perfil_Paciente(request, pk):
     #leitura da ficha do paciente
     paciente = Paciente.objects.get(pk=pk)
-    anotacoes = Anotacao_Paciente.objects.all()
-    formPacientes = PacienteForm(request.POST or None, instance=paciente)
-    formAnotacao_Paciente = AnotacaoForm(request.POST or None)
-    formAvaliacao = DadosMusculosForm(request.POST or None)
-    if formPacientes.is_valid():
-        formPacientes.save()
-        return redirect('perfil_paciente')
-    
-    if formAnotacao_Paciente.is_valid():
-        formAnotacao_Paciente.save()
-        return redirect('perfil_paciente')  
 
+    #leitura das anotações
+    anotacoes = Anotacao_Paciente.objects.all()
+    
     #leitura das avaliacoes do paciente
     queryMuscle = Dados_Musculos.objects.all()
     dadosMusculos = [int(obj.dadosMusculos) for obj in queryMuscle]
     dia = [obj.dia for obj in queryMuscle]
-    #paciente = Paciente.objects.get(pk=pk)
     context = {
         'dadosMusculos': json.dumps(dadosMusculos),
         'dia': json.dumps(dia, default=myconverter),
-        'formPacientes': formPacientes,
         'paciente': paciente,
         'anotacoes': anotacoes,
     }
@@ -105,7 +95,7 @@ def Anotacao(request, pk):
         parteCorpo = formAnotacao.cleaned_data['parteCorpo']
         anotacao = formAnotacao.cleaned_data['anotacao']
         formAnotacao.save()
-        return redirect('perfil_paciente')
+        return redirect('consulta_paciente')
 
     dados['formAnotacao'] = formAnotacao
     dados['paciente'] = paciente
