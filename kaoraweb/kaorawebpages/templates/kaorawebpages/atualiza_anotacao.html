@@ -7,7 +7,7 @@
             <a href="#" class="breadcrumb">Anotação</a>
         </div>
     </div>
-    <form action="{% url 'anotacao' paciente.id %}" method="POST">
+    <form action="{% url 'atualiza_anotacao' anotacoes.id %}" method="POST">
         {% csrf_token %}
         <div class="row">
             <div class="col s12">
@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div class="col s12 center btnEntrar">
-                <button class="waves-effect waves-light btn-large" type="submit">ENVIAR</button>
+                <button type="submit" class="waves-effect waves-light btn-large">Atualizar</button>
             </div>
         </div>
     </form>
