@@ -170,6 +170,12 @@ def Remover_Anotacao(request, pk):
     anotacao.delete()
     return redirect('consulta_paciente')
 
+def Termos(request):
+    return render(request, 'kaorawebpages/termos.html')
+
+def Como_Funciona(request):
+    return render(request, 'kaorawebpages/funciona.html')
+
 def sair(request):
     logout(request)
     return redirect('login')

@@ -23,16 +23,16 @@
                     <a href="#mobile-demo" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{% url 'cadastro_fisioterapeuta' %}">Cadastre-se</a></li>
-                        <li><a href="funciona.html">Como Funciona</a></li>
-                        <li><a href="termos.html">Termos de uso</a></li>
+                        <li><a href="{% url 'como_funciona' %}">Como Funciona</a></li>
+                        <li><a href="{% url 'termos' %}">Termos de uso</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
         <ul class="sidenav menu-top" id="mobile-demo">
             <li><a href="{% url 'cadastro_fisioterapeuta' %}">Cadastre-se</a></li>
-            <li><a href="funciona.html">Como Funciona</a></li>
-            <li><a href="termos.html">Termos de uso</a></li>
+            <li><a href="{% url 'como_funciona' %}">Como Funciona</a></li>
+            <li><a href="{% url 'termos' %}">Termos de uso</a></li>
         </ul>
     </header>
     <main>
