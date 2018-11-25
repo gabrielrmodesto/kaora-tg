@@ -1,6 +1,7 @@
 import json
 import datetime
 import time
+from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import Login, Fisioterapeuta, Paciente, Anotacao_Paciente, Dados_Musculos
 from .form import LoginForm, FisioterapeutaForm, PacienteForm, AnotacaoForm, DadosMusculosForm
@@ -103,28 +104,21 @@ def Anotacao(request, pk):
     return render(request, 'kaorawebpages/anotacao.html', dados)
 
 def myconverter(o):
-    if isinstance(o, datetime.datetime):
+    if isinstance(o, datetime.date):
         return o.__str__()
 
-def items():
-    queryMuscle = Dados_Musculos.objects.all()
-    items = {'charts': {'dadosMusculos': [], 'dia': []}}
-    for item in queryMuscle:
-        dia = int(time.mktime(item.dia.timetuple())*1000)
-        items['charts']['dadosMusculos'].append([dia, item.dadosMusculos])
-    return json.dumps(items)
-
 def Avaliacao(request):
-    # queryMuscle = Dados_Musculos.objects.all()
-    # dadosMusculos = [int(obj.dadosMusculos) for obj in queryMuscle]
-    #dia = [obj.dia for obj in queryMuscle]
+    context = []
+    queryMuscle = Dados_Musculos.objects.all()
+    dadosMusculos = [int(obj.dadosMusculos) for obj in queryMuscle]
+    dia = [obj.dia for obj in queryMuscle]
     #paciente = Paciente.objects.get(pk=pk)
-    # context = {
-    #     'dadosMusculos': json.dumps(dadosMusculos),
-    #     'dia': json.dumps(dia, default=myconverter),
-    # }
+    context = {
+        'dadosMusculos': json.dumps(dadosMusculos),
+        'dia': json.dumps(dia, default=myconverter),
+    }
 
-    return render(request, 'kaorawebpages/avaliacao.html', {'queryMuscle': items()})
+    return render(request, 'kaorawebpages/avaliacao.html', context)
 
 def Atualiza_Paciente(request, pk):
     data = {}

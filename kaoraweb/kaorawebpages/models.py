@@ -50,4 +50,4 @@ class Anotacao_Paciente(models.Model):
 
 class Dados_Musculos(models.Model):
     dadosMusculos = models.CharField(max_length=40)
-    dia = models.DateTimeField()
+    dia = models.DateField()
