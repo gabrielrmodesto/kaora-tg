@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     #se identificar configuracao DJANGO importa a classe model
     if os.environ.setdefault('DJANGO_SETTINGS_MODULE','kaorawebprojeto.settings'):
-        from kaorawebpages.models import Dados_Musculos
+        from . import Dados_Musculos
         from django.utils import timezone
 
     else:
