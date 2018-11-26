@@ -65,7 +65,7 @@ class AnotacaoForm(ModelForm):
 class DadosMusculosForm(ModelForm):
     class Meta:
         model = Dados_Musculos
-        fields = ('doc_id','dadosMusculos','dia')
+        fields = ('dadosMusculos','dia')
         widgets = {
             'dia': DateInput(attrs={'type': 'date'}),
         }
