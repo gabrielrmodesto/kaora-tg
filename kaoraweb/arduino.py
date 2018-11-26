@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python3
 
 #modulos de comunicacao serial e de tempo
 import serial
