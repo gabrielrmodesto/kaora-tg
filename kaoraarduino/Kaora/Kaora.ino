@@ -1,4 +1,4 @@
-#define velocidade 9600
+#define velocidade 115200
 #define porta A2
 #define ID '1' // identification
 
